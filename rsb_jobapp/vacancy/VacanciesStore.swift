@@ -19,7 +19,7 @@ class VacanciesStore{
     static func getInstance() -> VacanciesStore{
         if instance == nil {
             instance = VacanciesStore()
-            instance?.populateRandomly(forNumber: 5)
+            instance?.populateRandomly(forNumber: 25)
         }
         
         return instance!
