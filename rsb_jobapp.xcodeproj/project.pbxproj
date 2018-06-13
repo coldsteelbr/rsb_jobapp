@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */; };
+		3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */; };
+		3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA1020D10EE300BDED64 /* VacancyListVC.swift */; };
 		30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */; };
-		30C6DE9620CF967A00A4BAAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6DE9520CF967A00A4BAAA /* ViewController.swift */; };
 		30C6DE9920CF967A00A4BAAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C6DE9720CF967A00A4BAAA /* Main.storyboard */; };
 		30C6DE9B20CF968700A4BAAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C6DE9A20CF968700A4BAAA /* Assets.xcassets */; };
 		30C6DE9E20CF968700A4BAAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C6DE9C20CF968700A4BAAA /* LaunchScreen.storyboard */; };
@@ -17,9 +18,10 @@
 
 /* Begin PBXFileReference section */
 		3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
+		3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesStore.swift; sourceTree = "<group>"; };
+		3055DA1020D10EE300BDED64 /* VacancyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyListVC.swift; sourceTree = "<group>"; };
 		30C6DE9020CF967A00A4BAAA /* rsb_jobapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rsb_jobapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30C6DE9520CF967A00A4BAAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		30C6DE9820CF967A00A4BAAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30C6DE9A20CF968700A4BAAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30C6DE9D20CF968700A4BAAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,8 +43,17 @@
 			isa = PBXGroup;
 			children = (
 				3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */,
+				3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */,
 			);
 			path = vacancy;
+			sourceTree = "<group>";
+		};
+		3055DA0F20D10E6500BDED64 /* vacancyList */ = {
+			isa = PBXGroup;
+			children = (
+				3055DA1020D10EE300BDED64 /* VacancyListVC.swift */,
+			);
+			path = vacancyList;
 			sourceTree = "<group>";
 		};
 		30C6DE8720CF967A00A4BAAA = {
@@ -65,8 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				3055DA0A20D0ED7500BDED64 /* vacancy */,
+				3055DA0F20D10E6500BDED64 /* vacancyList */,
 				30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */,
-				30C6DE9520CF967A00A4BAAA /* ViewController.swift */,
 				30C6DE9720CF967A00A4BAAA /* Main.storyboard */,
 				30C6DE9A20CF968700A4BAAA /* Assets.xcassets */,
 				30C6DE9C20CF968700A4BAAA /* LaunchScreen.storyboard */,
@@ -146,7 +157,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C6DE9620CF967A00A4BAAA /* ViewController.swift in Sources */,
+				3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */,
+				3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */,
 				30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */,
 				3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */,
 			);
@@ -294,6 +306,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = rsb_jobapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,6 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = rsb_jobapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
