@@ -10,7 +10,8 @@ import UIKit
 
 class VacancyListVC: UITableViewController {
     
-    let store = VacanciesStore.getInstance()
+    let repository = Repository.getInstance()
+    var vacancyArray = [Vacancy]()
     
     //
     //  Lifecycle
@@ -18,6 +19,8 @@ class VacancyListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        vacancyArray = repository.getVacanciesFor(Request: "iOS")
         
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
@@ -39,14 +42,14 @@ class VacancyListVC: UITableViewController {
     //  DataSource protocol
     //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.items.count
+        return vacancyArray.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StandardCell", for: indexPath)
         
-        let item = store.items[indexPath.row]
+        let item = vacancyArray[indexPath.row]
         
         cell.textLabel?.text = item.title
         cell.detailTextLabel?.text = item.description

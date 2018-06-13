@@ -10,6 +10,7 @@
 		3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */; };
 		3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */; };
 		3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA1020D10EE300BDED64 /* VacancyListVC.swift */; };
+		3055DA1420D16E3300BDED64 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA1320D16E3300BDED64 /* Repository.swift */; };
 		30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */; };
 		30C6DE9920CF967A00A4BAAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C6DE9720CF967A00A4BAAA /* Main.storyboard */; };
 		30C6DE9B20CF968700A4BAAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C6DE9A20CF968700A4BAAA /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
 		3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesStore.swift; sourceTree = "<group>"; };
 		3055DA1020D10EE300BDED64 /* VacancyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyListVC.swift; sourceTree = "<group>"; };
+		3055DA1320D16E3300BDED64 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		30C6DE9020CF967A00A4BAAA /* rsb_jobapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rsb_jobapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30C6DE9820CF967A00A4BAAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 			path = vacancyList;
 			sourceTree = "<group>";
 		};
+		3055DA1220D16E1400BDED64 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				3055DA1320D16E3300BDED64 /* Repository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
 		30C6DE8720CF967A00A4BAAA = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		30C6DE9220CF967A00A4BAAA /* rsb_jobapp */ = {
 			isa = PBXGroup;
 			children = (
+				3055DA1220D16E1400BDED64 /* repository */,
 				3055DA0A20D0ED7500BDED64 /* vacancy */,
 				3055DA0F20D10E6500BDED64 /* vacancyList */,
 				30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */,
@@ -159,6 +170,7 @@
 			files = (
 				3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */,
 				3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */,
+				3055DA1420D16E3300BDED64 /* Repository.swift in Sources */,
 				30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */,
 				3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */,
 			);
