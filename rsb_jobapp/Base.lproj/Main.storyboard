@@ -58,6 +58,9 @@
                                     <searchBar contentMode="redraw" verticalHuggingPriority="251" searchBarStyle="prominent" placeholder="Look for vacancies" translatesAutoresizingMaskIntoConstraints="NO" id="ZpC-oY-rA7">
                                         <rect key="frame" x="0.0" y="542" width="375" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lB8-Zm-Quf" id="hYu-QH-MhP"/>
+                                        </connections>
                                     </searchBar>
                                 </subviews>
                             </stackView>
@@ -73,6 +76,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Vacancies" id="X1g-NV-A57"/>
                     <connections>
+                        <outlet property="searchBar" destination="ZpC-oY-rA7" id="UgB-fa-xqt"/>
                         <outlet property="tableView" destination="tjg-g4-8c5" id="lZT-l3-M2J"/>
                     </connections>
                 </viewController>
