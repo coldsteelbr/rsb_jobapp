@@ -15,7 +15,11 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet var searchBar: UISearchBar!
     
     let repository = Repository.getInstance()
-    var vacancyArray = [Vacancy]()
+    var vacancyArray = [Vacancy]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     /// Height of the parent TabbarVC's tab bar
     var tabBarHeight: CGFloat {
@@ -53,7 +57,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        //tableView.reloadData()
     }
     
     //
@@ -66,7 +70,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         // performing search
         vacancyArray = repository.getVacanciesFor(Request: searchBar.text!)
-        tableView.reloadData()
+        //tableView.reloadData()
     }
     
     
