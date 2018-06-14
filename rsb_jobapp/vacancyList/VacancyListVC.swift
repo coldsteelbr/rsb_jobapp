@@ -17,6 +17,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     let repository = Repository.getInstance()
     var vacancyArray = [Vacancy]()
     
+    /// Height of the parent TabbarVC's tab bar
     var tabBarHeight: CGFloat {
         get {
             return (tabBarController?.tabBar.frame.size.height)!
@@ -60,7 +61,12 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     //
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // hiding the keyboard
         dismissKeyboard()
+        
+        // performing search
+        vacancyArray = repository.getVacanciesFor(Request: searchBar.text!)
+        tableView.reloadData()
     }
     
     
