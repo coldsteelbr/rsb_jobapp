@@ -67,10 +67,13 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // dequeuing reusable cell view
         let cell = tableView.dequeueReusableCell(withIdentifier: "StandardCell", for: indexPath)
         
+        // getting necessary item
         let item = vacancyArray[indexPath.row]
         
+        // populating the cell with data from the item
         cell.textLabel?.text = item.title
         cell.detailTextLabel?.text = item.description
         
@@ -81,14 +84,29 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     //  Logic
     //
     
-    // Dismisses the soft keyboard
+    /// Dismisses the soft keyboard
     func dismissKeyboard(){
         view.endEditing(true)
     }
     
+    /// Reacts to keyboard view changes
     @objc func keyBoardWillChange(notification: Notification){
-        print("Keyboard will show: \(notification.name.rawValue)")
-        view.frame.origin.y = -300
+        
+        // getting keyboard's height
+        guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        // shifting the view up and down when the keyboard appears and disappears accordingly
+        if notification.name == Notification.Name.UIKeyboardWillShow ||
+            notification.name == Notification.Name.UIKeyboardWillChangeFrame {
+            // ... shifting up
+            view.frame.origin.y = -keyboardRect.height
+        } else {
+            // ... shifting down to normal
+            view.frame.origin.y = 0
+        }
+        
     }
     
 }
