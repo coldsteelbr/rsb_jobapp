@@ -55,14 +55,27 @@
                                             <outlet property="delegate" destination="lB8-Zm-Quf" id="2Nt-e8-ljv"/>
                                         </connections>
                                     </tableView>
-                                    <searchBar contentMode="redraw" verticalHuggingPriority="251" searchBarStyle="prominent" placeholder="Look for vacancies" translatesAutoresizingMaskIntoConstraints="NO" id="ZpC-oY-rA7">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEq-kh-MnA">
                                         <rect key="frame" x="0.0" y="542" width="375" height="56"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="lB8-Zm-Quf" id="hYu-QH-MhP"/>
-                                        </connections>
-                                    </searchBar>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" horizontalHuggingPriority="249" verticalHuggingPriority="251" searchBarStyle="prominent" placeholder="Look for vacancies" translatesAutoresizingMaskIntoConstraints="NO" id="ZpC-oY-rA7">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="lB8-Zm-Quf" id="hYu-QH-MhP"/>
+                                                </connections>
+                                            </searchBar>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrS-cO-ien">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="56"/>
+                                                <state key="normal" title="X"/>
+                                                <connections>
+                                                    <action selector="dismissKeyboardClick:" destination="lB8-Zm-Quf" eventType="touchUpInside" id="vnp-5L-GkT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <gestureRecognizers/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,6 +89,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Vacancies" id="X1g-NV-A57"/>
                     <connections>
+                        <outlet property="b_dismissKeyboard" destination="FrS-cO-ien" id="XeP-6O-OpC"/>
                         <outlet property="searchBar" destination="ZpC-oY-rA7" id="UgB-fa-xqt"/>
                         <outlet property="tableView" destination="tjg-g4-8c5" id="lZT-l3-M2J"/>
                     </connections>

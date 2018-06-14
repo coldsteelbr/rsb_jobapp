@@ -13,6 +13,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var b_dismissKeyboard: UIButton!
     
     let repository = Repository.getInstance()
     var vacancyArray = [Vacancy]() {
@@ -27,6 +28,14 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             return (tabBarController?.tabBar.frame.size.height)!
         }
     }
+    //
+    //  IBActions
+    //
+    @IBAction func dismissKeyboardClick(_ sender: UIButton) {
+        dismissKeyboard()
+        b_dismissKeyboard.isHidden = true
+    }
+    
     
     //
     //  Lifecycle
@@ -118,6 +127,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             notification.name == Notification.Name.UIKeyboardWillChangeFrame {
             // ... shifting up
             view.frame.origin.y = -keyboardRect.height + tabBarHeight
+            b_dismissKeyboard.isHidden = false
         } else {
             // ... shifting down to normal
             view.frame.origin.y = 0
