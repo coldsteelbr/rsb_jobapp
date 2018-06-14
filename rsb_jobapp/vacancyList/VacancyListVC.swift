@@ -45,7 +45,14 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
 
         // simulating search request
-        vacancyArray = repository.getVacanciesFor(Request: "ios")
+        repository.getVacanciesFor(Request: "ios") {
+            (responseArray) in
+            // refreshing data in UI thread,
+            // cuz the jos's done the background thread
+            DispatchQueue.main.async {
+                self.vacancyArray = responseArray
+            }
+        }
         
         // setting table view cell height
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -78,8 +85,15 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         dismissKeyboard()
         
         // performing search
-        vacancyArray = repository.getVacanciesFor(Request: searchBar.text!)
-        //tableView.reloadData()
+        repository.getVacanciesFor(Request: searchBar.text!) {
+            (responseArray) in
+            // refreshing data in UI thread,
+            // cuz the jos's done the background thread
+            DispatchQueue.main.async {
+                self.vacancyArray = responseArray
+            }
+        }
+        
     }
     
     

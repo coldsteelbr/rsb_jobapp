@@ -29,15 +29,19 @@ class Repository{
     //
     
     /// Returns vacancies by request string
-    public func getVacanciesFor(Request request: String) -> [Vacancy] {
-        
-        let responseArray = VacanciesStore.getInstance().items.filter({
-            if let _ = $0.title.lowercased().range(of: request.lowercased()) {
-                return true
-            }
-            return false
-        })
-        
-        return responseArray
+    public func getVacanciesFor(Request request: String, completion: @escaping ([Vacancy]) -> Void)  {
+        // Asynchronous call
+        DispatchQueue.global(qos: .userInteractive).async {
+            sleep(5)
+            let responseArray = VacanciesStore.getInstance().items.filter({
+                if let _ = $0.title.lowercased().range(of: request.lowercased()) {
+                    return true
+                }
+                return false
+            })
+            
+            //return responseArray
+            completion(responseArray)
+        }
     }
 }
