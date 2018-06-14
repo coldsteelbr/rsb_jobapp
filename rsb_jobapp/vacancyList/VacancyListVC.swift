@@ -17,6 +17,12 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     let repository = Repository.getInstance()
     var vacancyArray = [Vacancy]()
     
+    var tabBarHeight: CGFloat {
+        get {
+            return (tabBarController?.tabBar.frame.size.height)!
+        }
+    }
+    
     //
     //  Lifecycle
     //
@@ -101,7 +107,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         if notification.name == Notification.Name.UIKeyboardWillShow ||
             notification.name == Notification.Name.UIKeyboardWillChangeFrame {
             // ... shifting up
-            view.frame.origin.y = -keyboardRect.height
+            view.frame.origin.y = -keyboardRect.height + tabBarHeight
         } else {
             // ... shifting down to normal
             view.frame.origin.y = 0
