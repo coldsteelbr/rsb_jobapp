@@ -24,7 +24,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
 
         // simulating search request
-        vacancyArray = repository.getVacanciesFor(Request: "iOS")
+        vacancyArray = repository.getVacanciesFor(Request: "ios")
         
         // setting table view cell height
         tableView.rowHeight = UITableViewAutomaticDimension

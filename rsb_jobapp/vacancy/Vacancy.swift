@@ -8,7 +8,7 @@
 import Foundation
 // for random vacancies
 let titles = ["iOS Developer",
-              "iOS Junior Developer",
+              "Ios Junior Developer",
               "Android Senior Developer",
               "QA Lead",
               "Sales manager"]
