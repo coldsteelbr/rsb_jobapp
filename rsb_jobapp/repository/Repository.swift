@@ -29,25 +29,52 @@ class Repository{
     //
     
     /// Returns vacancies by request string
-    public func getVacanciesFor(Request request: String, completion: @escaping ([Vacancy]) -> Void)  {
+    public func getVacanciesFor(Request request: RequestProtocol, completion: @escaping ([Vacancy]) -> Void)  {
         // Asynchronous call
         DispatchQueue.global(qos: .userInteractive).async {
-            sleep(5)
-            let responseArray = self.getVacanciesFromMemoryForRequest(request)
+            var responseArray: [Vacancy]
             
-            //return responseArray
-            completion(responseArray)
+            switch request.getApiName() {
+            case "hh.ru":
+                self.getVacanciesFromApiByRequest(request) {
+                    (data) in
+                    completion(data)
+                }
+            case "in-memory":
+                // getting responseArray
+                responseArray = self.getVacanciesFromMemoryForRequest(request)
+                completion(responseArray)
+            default:
+                break
+            }
+            
         }
     }
 
     /// Returns in-memory response
-    private func getVacanciesFromMemoryForRequest(_ request: String) -> [Vacancy] {
+    private func getVacanciesFromMemoryForRequest(_ request: RequestProtocol) -> [Vacancy] {
+        sleep(5)
         return VacanciesStore.getInstance().items.filter({
-            if let _ = $0.title.lowercased().range(of: request.lowercased()) {
+            if let _ = $0.title.lowercased().range(of: request.getRequestPattern()!.lowercased()) {
                 return true
             }
             return false
         })
     }
-   
+    
+    /// Returns real data from http
+    private func getVacanciesFromApiByRequest(_ request: RequestProtocol, completion: @escaping ([Vacancy]) -> Void){
+        // performing HTTP(S) connection
+        
+        //
+        // Placeholder
+        //
+        sleep(5)
+        
+        let vacancy_one = Vacancy("", "iOS", "dev", "emp1")
+        let vacancy_two = Vacancy("", "iOS", "dev", "emp2")
+        let vacancy_three = Vacancy("", "Android", "dev", "emp2")
+        
+        completion([vacancy_one, vacancy_two, vacancy_three])
+    }
 }

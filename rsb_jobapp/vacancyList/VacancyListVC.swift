@@ -45,6 +45,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
 
         // simulating search request
+        /*
         repository.getVacanciesFor(Request: "ios") {
             (responseArray) in
             // refreshing data in UI thread,
@@ -53,6 +54,7 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                 self.vacancyArray = responseArray
             }
         }
+        */
         
         // setting table view cell height
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -84,8 +86,11 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         // hiding the keyboard
         dismissKeyboard()
         
+        let inMemoryRequest = InMemoryRequest(forFilter: searchBar.text!)
+        
+        
         // performing search
-        repository.getVacanciesFor(Request: searchBar.text!) {
+        repository.getVacanciesFor(Request: inMemoryRequest) {
             (responseArray) in
             // refreshing data in UI thread,
             // cuz the jos's done the background thread

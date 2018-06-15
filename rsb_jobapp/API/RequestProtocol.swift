@@ -9,5 +9,6 @@
 import Foundation
 
 protocol RequestProtocol {
-    func getRequestUrl() -> String?
+    func getRequestPattern() -> String?
+    func getApiName() -> String?
 }

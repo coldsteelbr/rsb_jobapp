@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		304FE32420D3A2B700BE0C0A /* HhApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304FE32320D3A2B700BE0C0A /* HhApiRequest.swift */; };
 		304FE32620D3A53500BE0C0A /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304FE32520D3A53500BE0C0A /* RequestProtocol.swift */; };
+		304FE32920D3DDD600BE0C0A /* InMemoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304FE32820D3DDD600BE0C0A /* InMemoryRequest.swift */; };
 		3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */; };
 		3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */; };
 		3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA1020D10EE300BDED64 /* VacancyListVC.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		304FE32320D3A2B700BE0C0A /* HhApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HhApiRequest.swift; sourceTree = "<group>"; };
 		304FE32520D3A53500BE0C0A /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		304FE32820D3DDD600BE0C0A /* InMemoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryRequest.swift; sourceTree = "<group>"; };
 		3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
 		3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesStore.swift; sourceTree = "<group>"; };
 		3055DA1020D10EE300BDED64 /* VacancyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyListVC.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		304FE32120D3A28100BE0C0A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				304FE32720D3DDA100BE0C0A /* In-memory */,
 				304FE32220D3A29300BE0C0A /* HH */,
 				304FE32520D3A53500BE0C0A /* RequestProtocol.swift */,
 			);
@@ -62,11 +65,19 @@
 			path = HH;
 			sourceTree = "<group>";
 		};
+		304FE32720D3DDA100BE0C0A /* In-memory */ = {
+			isa = PBXGroup;
+			children = (
+				3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */,
+				304FE32820D3DDD600BE0C0A /* InMemoryRequest.swift */,
+			);
+			path = "In-memory";
+			sourceTree = "<group>";
+		};
 		3055DA0A20D0ED7500BDED64 /* vacancy */ = {
 			isa = PBXGroup;
 			children = (
 				3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */,
-				3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */,
 			);
 			path = vacancy;
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */,
+				304FE32920D3DDD600BE0C0A /* InMemoryRequest.swift in Sources */,
 				3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */,
 				3055DA1420D16E3300BDED64 /* Repository.swift in Sources */,
 				30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */,

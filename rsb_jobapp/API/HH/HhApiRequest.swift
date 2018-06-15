@@ -30,6 +30,7 @@ struct UrlKeyValue {
 /// Represents Head Hunter's API request
 class HhApiRequest: RequestProtocol {
     
+    let apiName = "hh.ru"
     let baseUrl = "https://api.hh.ru"
     let userAgent = HttpHeader(name: "User-Agent", value: "JobApp/1.0 (mail@example.com)")
     var requestUrl:String?
@@ -38,7 +39,7 @@ class HhApiRequest: RequestProtocol {
     //
     //  RequestProtocol methods
     //
-    func getRequestUrl() -> String? {
+    func getRequestPattern() -> String? {
         guard let requestUrl = requestUrl else {
             return nil
         }
@@ -53,5 +54,9 @@ class HhApiRequest: RequestProtocol {
         
         
         return request
+    }
+    
+    func getApiName() -> String? {
+        return apiName
     }
 }
