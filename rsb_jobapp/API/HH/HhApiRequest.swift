@@ -33,8 +33,17 @@ class HhApiRequest: RequestProtocol {
     let apiName = "hh.ru"
     let baseUrl = "https://api.hh.ru"
     let userAgent = HttpHeader(name: "User-Agent", value: "JobApp/1.0 (mail@example.com)")
-    var requestUrl:String?
-    lazy var requestParameters = [UrlKeyValue]()
+    let requestUrl:String?
+    let requestParameters: [UrlKeyValue]
+    
+    //
+    //  Logic
+    //
+    
+    init(RequestUrl url:String, Params params: [UrlKeyValue]){
+        requestUrl = url
+        requestParameters = params
+    }
     
     //
     //  RequestProtocol methods
@@ -51,7 +60,6 @@ class HhApiRequest: RequestProtocol {
             request.append(urlParam.getAsUrlPair())
             request.append("&")
         }
-        
         
         return request
     }

@@ -86,11 +86,17 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         // hiding the keyboard
         dismissKeyboard()
         
-        let inMemoryRequest = InMemoryRequest(forFilter: searchBar.text!)
         
+        let inMemoryRequest = InMemoryRequest(forFilter: searchBar.text!)
+        let hhApiRequest = HhApiRequest(RequestUrl: "/vacancies",
+                                        Params: [UrlKeyValue(key: "text", value: searchBar.text!),
+                                                 UrlKeyValue(key: "area", value: "4"),
+                                                 UrlKeyValue(key: "search_field", value: "name")])
+        
+        let actualRequest = hhApiRequest
         
         // performing search
-        repository.getVacanciesFor(Request: inMemoryRequest) {
+        repository.getVacanciesFor(Request: actualRequest) {
             (responseArray) in
             // refreshing data in UI thread,
             // cuz the jos's done the background thread

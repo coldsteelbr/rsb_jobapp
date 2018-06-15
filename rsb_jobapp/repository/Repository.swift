@@ -65,7 +65,7 @@ class Repository{
     /// Returns real data from http
     private func getVacanciesFromApiByRequest(_ request: RequestProtocol, completion: @escaping ([Vacancy]) -> Void){
         // performing HTTP(S) connection
-        
+        print("\(#function): URL: \(request.getRequestPattern())")
         //
         // Placeholder
         //
