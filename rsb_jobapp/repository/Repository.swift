@@ -33,15 +33,21 @@ class Repository{
         // Asynchronous call
         DispatchQueue.global(qos: .userInteractive).async {
             sleep(5)
-            let responseArray = VacanciesStore.getInstance().items.filter({
-                if let _ = $0.title.lowercased().range(of: request.lowercased()) {
-                    return true
-                }
-                return false
-            })
+            let responseArray = self.getVacanciesFromMemoryForRequest(request)
             
             //return responseArray
             completion(responseArray)
         }
     }
+
+    /// Returns in-memory response
+    private func getVacanciesFromMemoryForRequest(_ request: String) -> [Vacancy] {
+        return VacanciesStore.getInstance().items.filter({
+            if let _ = $0.title.lowercased().range(of: request.lowercased()) {
+                return true
+            }
+            return false
+        })
+    }
+   
 }

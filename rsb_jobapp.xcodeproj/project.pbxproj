@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304FE32420D3A2B700BE0C0A /* HhApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304FE32320D3A2B700BE0C0A /* HhApiRequest.swift */; };
+		304FE32620D3A53500BE0C0A /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304FE32520D3A53500BE0C0A /* RequestProtocol.swift */; };
 		3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */; };
 		3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */; };
 		3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA1020D10EE300BDED64 /* VacancyListVC.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		304FE32320D3A2B700BE0C0A /* HhApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HhApiRequest.swift; sourceTree = "<group>"; };
+		304FE32520D3A53500BE0C0A /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		3055DA0B20D0EDAA00BDED64 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
 		3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesStore.swift; sourceTree = "<group>"; };
 		3055DA1020D10EE300BDED64 /* VacancyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyListVC.swift; sourceTree = "<group>"; };
@@ -41,6 +45,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		304FE32120D3A28100BE0C0A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				304FE32220D3A29300BE0C0A /* HH */,
+				304FE32520D3A53500BE0C0A /* RequestProtocol.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		304FE32220D3A29300BE0C0A /* HH */ = {
+			isa = PBXGroup;
+			children = (
+				304FE32320D3A2B700BE0C0A /* HhApiRequest.swift */,
+			);
+			path = HH;
+			sourceTree = "<group>";
+		};
 		3055DA0A20D0ED7500BDED64 /* vacancy */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +106,7 @@
 		30C6DE9220CF967A00A4BAAA /* rsb_jobapp */ = {
 			isa = PBXGroup;
 			children = (
+				304FE32120D3A28100BE0C0A /* API */,
 				3055DA1220D16E1400BDED64 /* repository */,
 				3055DA0A20D0ED7500BDED64 /* vacancy */,
 				3055DA0F20D10E6500BDED64 /* vacancyList */,
@@ -172,7 +194,9 @@
 				3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */,
 				3055DA1420D16E3300BDED64 /* Repository.swift in Sources */,
 				30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */,
+				304FE32420D3A2B700BE0C0A /* HhApiRequest.swift in Sources */,
 				3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */,
+				304FE32620D3A53500BE0C0A /* RequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
