@@ -93,6 +93,7 @@
 		3055DA1220D16E1400BDED64 /* repository */ = {
 			isa = PBXGroup;
 			children = (
+				304FE32120D3A28100BE0C0A /* API */,
 				3055DA1320D16E3300BDED64 /* Repository.swift */,
 			);
 			path = repository;
@@ -117,7 +118,6 @@
 		30C6DE9220CF967A00A4BAAA /* rsb_jobapp */ = {
 			isa = PBXGroup;
 			children = (
-				304FE32120D3A28100BE0C0A /* API */,
 				3055DA1220D16E1400BDED64 /* repository */,
 				3055DA0A20D0ED7500BDED64 /* vacancy */,
 				3055DA0F20D10E6500BDED64 /* vacancyList */,
