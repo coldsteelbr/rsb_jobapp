@@ -24,6 +24,32 @@ class Repository{
     }
     private init(){}
     
+    // HTTP
+    private let session: URLSession = {
+        let config = URLSessionConfiguration.default
+        return URLSession(configuration: config)
+    }()
+    
+    private func performHttpForRequest(_ request: RequestProtocol){
+        let url = URL.init(string: request.getRequestString()!)
+        
+        let urlRequest = URLRequest(url: url!)
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) -> Void in
+            
+            if let jsonData = data {
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print(jsonString)
+                }
+            } else if let requestError = error {
+                print("Error getting vacancies: \(requestError)")
+            } else {
+                print("Unexpected error")
+            }
+        }
+        task.resume()
+    }
+    
     //
     // Logic
     //
@@ -66,6 +92,10 @@ class Repository{
     private func getVacanciesFromApiByRequest(_ request: RequestProtocol, completion: @escaping ([Vacancy]) -> Void){
         // performing HTTP(S) connection
         print("\(#function): URL: \(request.getRequestString() ?? "null" )")
+        // HTTP:
+        performHttpForRequest(request)
+        
+        
         //
         // Placeholder
         //
