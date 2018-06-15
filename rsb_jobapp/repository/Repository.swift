@@ -55,7 +55,7 @@ class Repository{
     private func getVacanciesFromMemoryForRequest(_ request: RequestProtocol) -> [Vacancy] {
         sleep(5)
         return VacanciesStore.getInstance().items.filter({
-            if let _ = $0.title.lowercased().range(of: request.getRequestPattern()!.lowercased()) {
+            if let _ = $0.title.lowercased().range(of: request.getRequestString()!.lowercased()) {
                 return true
             }
             return false
@@ -65,7 +65,7 @@ class Repository{
     /// Returns real data from http
     private func getVacanciesFromApiByRequest(_ request: RequestProtocol, completion: @escaping ([Vacancy]) -> Void){
         // performing HTTP(S) connection
-        print("\(#function): URL: \(request.getRequestPattern())")
+        print("\(#function): URL: \(request.getRequestString() ?? "null" )")
         //
         // Placeholder
         //

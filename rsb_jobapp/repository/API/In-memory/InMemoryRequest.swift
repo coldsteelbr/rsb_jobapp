@@ -16,7 +16,7 @@ class InMemoryRequest: RequestProtocol {
         self.filter = filter
     }
     
-    func getRequestPattern() -> String? {
+    func getRequestString() -> String? {
         return filter
     }
     

@@ -87,11 +87,11 @@ class VacancyListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         dismissKeyboard()
         
         
-        let inMemoryRequest = InMemoryRequest(forFilter: searchBar.text!)
-        let hhApiRequest = HhApiRequest(RequestUrl: "/vacancies",
-                                        Params: [UrlKeyValue(key: "text", value: searchBar.text!),
-                                                 UrlKeyValue(key: "area", value: "4"),
-                                                 UrlKeyValue(key: "search_field", value: "name")])
+        //let inMemoryRequest = InMemoryRequest(forFilter: searchBar.text!)
+        let hhApiRequest = HhApiRequest(RequestMethod: .vacancies,
+                                        Params: [ "text" :  searchBar.text!,
+                                                  "area":  "4",
+                                                  "search_field":  "name"])
         
         let actualRequest = hhApiRequest
         

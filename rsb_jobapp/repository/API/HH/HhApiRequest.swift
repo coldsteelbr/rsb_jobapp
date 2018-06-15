@@ -13,55 +13,45 @@ enum HhResult{
     case error
 }
 
-struct HttpHeader {
-    var name: String
-    var value: String
-}
-
-struct UrlKeyValue {
-    var key: String
-    var value: String
-    
-    func getAsUrlPair() -> String {
-        return "\(key)=\(value)"
-    }
+enum Method: String {
+    case vacancies = "/vacancies?"
 }
 
 /// Represents Head Hunter's API request
 class HhApiRequest: RequestProtocol {
-    
     let apiName = "hh.ru"
     let baseUrl = "https://api.hh.ru"
-    let userAgent = HttpHeader(name: "User-Agent", value: "JobApp/1.0 (mail@example.com)")
-    let requestUrl:String?
-    let requestParameters: [UrlKeyValue]
+    let userAgent = ("User-Agent", "JobApp/1.0 (mail@example.com)")
+    let requestMethod:Method
+    let requestParameters: [String:String]?
     
     //
     //  Logic
     //
     
-    init(RequestUrl url:String, Params params: [UrlKeyValue]){
-        requestUrl = url
+    init(RequestMethod method:Method, Params params: [String:String]){
+        requestMethod = method
         requestParameters = params
     }
     
     //
     //  RequestProtocol methods
     //
-    func getRequestPattern() -> String? {
-        guard let requestUrl = requestUrl else {
-            return nil
-        }
-        var request = baseUrl
-        request.append(requestUrl)
-        request.append("?")
+    func getRequestString() -> String? {
+        // building url address for HH API
+        var components = URLComponents(string: baseUrl + requestMethod.rawValue)
+        var queryItems = [URLQueryItem]()
         
-        for urlParam in requestParameters {
-            request.append(urlParam.getAsUrlPair())
-            request.append("&")
+        if let requestParams = requestParameters {
+            for (name, value) in requestParams {
+                let item = URLQueryItem(name: name, value: value)
+                queryItems.append(item)
+            }
         }
         
-        return request
+        components?.queryItems = queryItems
+        
+        return components?.url?.absoluteString
     }
     
     func getApiName() -> String? {
