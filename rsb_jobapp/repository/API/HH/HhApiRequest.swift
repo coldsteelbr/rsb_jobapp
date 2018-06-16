@@ -9,8 +9,8 @@
 import Foundation
 
 enum HhResult{
-    case okay
-    case error
+    case success([Vacancy])
+    case error(Error)
 }
 
 enum Method: String {

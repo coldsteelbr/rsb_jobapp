@@ -30,22 +30,49 @@ class Repository{
         return URLSession(configuration: config)
     }()
     
-    private func performHttpForRequest(_ request: RequestProtocol){
+    private func performHttpForRequest(_ request: RequestProtocol, completion: @escaping (HhResult) -> Void){
         let url = URL.init(string: request.getRequestString()!)
         
         let urlRequest = URLRequest(url: url!)
         let task = session.dataTask(with: urlRequest) {
             (data, response, error) -> Void in
-            
+            var result = HhResult.success([])
             if let jsonData = data {
-                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                }
+                //do {
+                    var vacancyList = [Vacancy]()
+                    switch(request.getApiName()){
+                    case "hh.ru":
+                        let dataParser = HhDataParser()
+                        //vacancyList =
+                        result = dataParser.fetchVacancyListFrom(JSON: jsonData)
+                        switch(result){
+                        case let .success(vacancies):
+                            vacancyList = vacancies
+                        case let .error(error):
+                            print("Error while fetching vacancies: \(error)")
+                        }
+                    case "in-memory":
+                        let vacancy_one = Vacancy("", "iOS m", "dev", "emp1")
+                        let vacancy_two = Vacancy("", "iOS m", "dev", "emp2")
+                        let vacancy_three = Vacancy("", "Android m", "dev", "emp2")
+                        vacancyList = [vacancy_one, vacancy_two, vacancy_three]
+                        result = HhResult.success(vacancyList)
+                    default:
+                        vacancyList = [Vacancy]()
+                        print("\(#function): Unknown API");
+                        result = HhResult.error(NSError(domain: "Uknown", code: 1, userInfo: nil))
+                    }
+                    print(vacancyList)
+//                } catch {
+//                    print("Error creating JSON object: \(error)")
+//                }
             } else if let requestError = error {
                 print("Error getting vacancies: \(requestError)")
             } else {
                 print("Unexpected error")
             }
+            
+            completion(result)
         }
         task.resume()
     }
@@ -93,18 +120,16 @@ class Repository{
         // performing HTTP(S) connection
         print("\(#function): URL: \(request.getRequestString() ?? "null" )")
         // HTTP:
-        performHttpForRequest(request)
+        performHttpForRequest(request){
+            (result) -> Void in
+            switch result {
+            case let .success(vacancies):
+                    completion(vacancies)
+                    print("Found: \(vacancies.count) vacancies")
+            case let .error(error):
+                print("Error: \(error)")
+            }
+        }
         
-        
-        //
-        // Placeholder
-        //
-        sleep(5)
-        
-        let vacancy_one = Vacancy("", "iOS", "dev", "emp1")
-        let vacancy_two = Vacancy("", "iOS", "dev", "emp2")
-        let vacancy_three = Vacancy("", "Android", "dev", "emp2")
-        
-        completion([vacancy_one, vacancy_two, vacancy_three])
     }
 }

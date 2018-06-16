@@ -14,6 +14,8 @@
 		3055DA0E20D0F5D000BDED64 /* VacanciesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */; };
 		3055DA1120D10EE300BDED64 /* VacancyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA1020D10EE300BDED64 /* VacancyListVC.swift */; };
 		3055DA1420D16E3300BDED64 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3055DA1320D16E3300BDED64 /* Repository.swift */; };
+		307CEC9420D4424D009FCA46 /* DataParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307CEC9320D4424D009FCA46 /* DataParserProtocol.swift */; };
+		307CEC9620D442F1009FCA46 /* HhDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307CEC9520D442F1009FCA46 /* HhDataParser.swift */; };
 		30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */; };
 		30C6DE9920CF967A00A4BAAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C6DE9720CF967A00A4BAAA /* Main.storyboard */; };
 		30C6DE9B20CF968700A4BAAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C6DE9A20CF968700A4BAAA /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		3055DA0D20D0F5D000BDED64 /* VacanciesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesStore.swift; sourceTree = "<group>"; };
 		3055DA1020D10EE300BDED64 /* VacancyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyListVC.swift; sourceTree = "<group>"; };
 		3055DA1320D16E3300BDED64 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		307CEC9320D4424D009FCA46 /* DataParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParserProtocol.swift; sourceTree = "<group>"; };
+		307CEC9520D442F1009FCA46 /* HhDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HhDataParser.swift; sourceTree = "<group>"; };
 		30C6DE9020CF967A00A4BAAA /* rsb_jobapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rsb_jobapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C6DE9320CF967A00A4BAAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30C6DE9820CF967A00A4BAAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 				304FE32720D3DDA100BE0C0A /* In-memory */,
 				304FE32220D3A29300BE0C0A /* HH */,
 				304FE32520D3A53500BE0C0A /* RequestProtocol.swift */,
+				307CEC9320D4424D009FCA46 /* DataParserProtocol.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -61,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				304FE32320D3A2B700BE0C0A /* HhApiRequest.swift */,
+				307CEC9520D442F1009FCA46 /* HhDataParser.swift */,
 			);
 			path = HH;
 			sourceTree = "<group>";
@@ -207,8 +213,10 @@
 				3055DA1420D16E3300BDED64 /* Repository.swift in Sources */,
 				30C6DE9420CF967A00A4BAAA /* AppDelegate.swift in Sources */,
 				304FE32420D3A2B700BE0C0A /* HhApiRequest.swift in Sources */,
+				307CEC9620D442F1009FCA46 /* HhDataParser.swift in Sources */,
 				3055DA0C20D0EDAA00BDED64 /* Vacancy.swift in Sources */,
 				304FE32620D3A53500BE0C0A /* RequestProtocol.swift in Sources */,
+				307CEC9420D4424D009FCA46 /* DataParserProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
